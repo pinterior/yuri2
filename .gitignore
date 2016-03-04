@@ -1,0 +1,10 @@
+.vs/
+Debug/
+Release/
+ipch/
+x64/
+
+*.aps
+*.opendb
+*.sdf
+*.vcxproj.user
