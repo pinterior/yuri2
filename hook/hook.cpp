@@ -1,4 +1,4 @@
 #include "stdafx.h"
-#include "hook.h"
+#include "../common/hook.h"
 
 HOOK_API int nhook=0;
