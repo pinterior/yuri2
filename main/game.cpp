@@ -46,3 +46,8 @@ void game_window::unset_hook()
 {
    hook.reset();
 }
+
+BOOL game_window::post_message(UINT message, WPARAM wparam, LPARAM lparam)
+{
+   return hook::PostMessageNotHooked(window, message, wparam, lparam);
+}

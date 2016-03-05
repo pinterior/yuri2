@@ -22,4 +22,5 @@ public:
    bool find();
    bool set_hook(HWND callback, UINT message, UINT params, int skip_key);
    void unset_hook();
+   BOOL post_message(UINT message, WPARAM wparam, LPARAM lparam);
 };

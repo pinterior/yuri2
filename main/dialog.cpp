@@ -1,7 +1,9 @@
 #include "stdafx.h"
 
 CMainDialog::CMainDialog() : game_en(GAME_TITLE_EN),
-                             game_ja(GAME_TITLE_JA)
+                             game_ja(GAME_TITLE_JA),
+                             en_to_ja{ game_en, game_ja },
+                             ja_to_en{ game_ja, game_en }
 {
 }
 
@@ -77,4 +79,28 @@ void CMainDialog::OnHook(UINT uNotifyCode, int nID, CWindow wndCtl) {
       game_en.unset_hook();
       game_ja.unset_hook();
    }
+}
+
+LRESULT CMainDialog::OnMessageEn(UINT uMsg, WPARAM wParam, LPARAM lParam) {
+   en_to_ja.clear();
+   en_to_ja.message(static_cast<UINT>(wParam));
+   return 0;
+}
+
+LRESULT CMainDialog::OnParamsEn(UINT uMsg, WPARAM wParam, LPARAM lParam) {
+   en_to_ja.params(wParam, lParam);
+   en_to_ja.post();
+   return 0;
+}
+
+LRESULT CMainDialog::OnMessageJa(UINT uMsg, WPARAM wParam, LPARAM lParam) {
+   ja_to_en.clear();
+   ja_to_en.message(static_cast<UINT>(wParam));
+   return 0;
+}
+
+LRESULT CMainDialog::OnParamsJa(UINT uMsg, WPARAM wParam, LPARAM lParam) {
+   ja_to_en.params(wParam, lParam);
+   ja_to_en.post();
+   return 0;
 }
