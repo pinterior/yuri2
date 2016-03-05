@@ -3,6 +3,9 @@
 #include "../common/targetver.h"
 
 #include <cstdlib>
+#include <memory>
+#include <type_traits>
+#include <utility>
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>

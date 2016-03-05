@@ -28,6 +28,9 @@ void CMainDialog::OnClose()
 
 void CMainDialog::OnDestroy()
 {
+   game_en.unset_hook();
+   game_ja.unset_hook();
+
    auto loop = appModule.GetMessageLoop();
    loop->RemoveMessageFilter(this);
 }
@@ -61,5 +64,17 @@ void CMainDialog::OnHook(UINT uNotifyCode, int nID, CWindow wndCtl) {
    }
    if (ja_found) {
       ShowWindowInfo(edit_ja, game_ja.get_window());
+   }
+
+   if (!en_found || !ja_found) {
+      return;
+   }
+
+   bool en_hooked = game_en.set_hook(*this, WM_MESSAGE_EN, WM_PARAMS_EN, SKIP_KEY);
+   bool ja_hooked = game_ja.set_hook(*this, WM_MESSAGE_JA, WM_PARAMS_JA, SKIP_KEY);
+
+   if (!en_hooked || !ja_hooked) {
+      game_en.unset_hook();
+      game_ja.unset_hook();
    }
 }

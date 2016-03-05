@@ -6,6 +6,14 @@ class CMainDialog : public CDialogImpl<CMainDialog>,
                     public CMessageFilter
 {
 private:
+   enum : UINT {
+      WM_MESSAGE_EN = WM_APP,
+      WM_PARAMS_EN,
+      WM_MESSAGE_JA,
+      WM_PARAMS_JA,
+   };
+   enum : int { SKIP_KEY = 'S' };
+
    game_window game_en;
    game_window game_ja;
 
