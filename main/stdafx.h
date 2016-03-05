@@ -2,6 +2,8 @@
 
 #include "../common/targetver.h"
 
+#include <cstdlib>
+
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
@@ -9,6 +11,7 @@
 #include <atlapp.h>
 #include <atlcrack.h>
 #include <atlmisc.h>
+#include <atlctrls.h>
 
 #include "../common/hook.h"
 
