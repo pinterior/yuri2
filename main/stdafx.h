@@ -14,5 +14,6 @@
 
 #include "resource.h"
 
-#include "main.h"
 #include "dialog.h"
+#include "game.h"
+#include "main.h"
