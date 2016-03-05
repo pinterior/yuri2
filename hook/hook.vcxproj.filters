@@ -23,6 +23,9 @@
     <ClInclude Include="..\common\hook.h">
       <Filter>Header Files\common</Filter>
     </ClInclude>
+    <ClInclude Include="dllmain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
