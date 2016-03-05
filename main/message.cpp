@@ -67,6 +67,7 @@ void message_flow::post() {
       WPARAM wParam = buf.get_wparam();
       LPARAM lParam = buf.get_lparam();
 
+      from.translate(to, message, wParam, lParam);
       to.post_message(message, wParam, lParam);
       buf.clear();
    }

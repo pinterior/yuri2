@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
-CMainDialog::CMainDialog() : game_en(GAME_TITLE_EN),
-                             game_ja(GAME_TITLE_JA),
+CMainDialog::CMainDialog() : game_en{ game_params::en },
+                             game_ja{ game_params::ja },
                              en_to_ja{ game_en, game_ja },
                              ja_to_en{ game_ja, game_en }
 {

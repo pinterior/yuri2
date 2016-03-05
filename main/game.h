@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 struct hook_deleter {
    void operator()(HHOOK hook);
@@ -6,21 +6,28 @@ struct hook_deleter {
 
 typedef std::unique_ptr<std::remove_pointer<HHOOK>::type, hook_deleter> unique_hook;
 
-#define GAME_TITLE_EN _T("Kindred Spirits on the Roof")
-#define GAME_TITLE_JA _T("屋上の百合霊さん")
+struct game_params {
+   const TCHAR *title;
+   CRect control;
+
+   static const game_params en;
+   static const game_params ja;
+};
+
 
 class game_window {
 private:
-   const TCHAR *title;
+   const game_params params;
    HWND window;
    unique_hook hook;
 
 public:
-   game_window(const TCHAR *title);
+   game_window(game_params params);
 
    HWND get_window() const;
    bool find();
    bool set_hook(HWND callback, UINT message, UINT params, int skip_key);
    void unset_hook();
+   void translate(const game_window &other, UINT &message, WPARAM &wparam, LPARAM &lparam) const;
    BOOL post_message(UINT message, WPARAM wparam, LPARAM lparam);
 };
