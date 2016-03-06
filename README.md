@@ -1,8 +1,14 @@
-## 操作方法
+## Prerequisites
+
+* [Visual C++ Redistributable for Visual Studio 2015 Update 1](https://www.microsoft.com/en-US/download/details.aspx?id=49984) (x86)
+* Kindred Spirits on the Roof
+* 屋上の百合霊さん
+
+## Instruction
 
 「Kindred Spirits on the Roof」と「屋上の百合麗さん」が共に起動している状態でこのアプリの「Push」と書かれたボタンを押すと、一方で行ったマウス・キーボードの操作が他方にも影響するようになります。このアプリを終了するとその状態が解除されるほか、キーボードの「S」を押している間はマウス操作は他方に影響しません。
 
-## ダウンロード
+## Download
 
 https://pinterior.github.io/yuri2/yuri2.zip
 
@@ -16,3 +22,8 @@ https://pinterior.github.io/yuri2/yuri2.zip
 ### 操作していない側のメッセージが表示されない
 
 サイレントモードをOFFに。
+
+## Build environment
+
+* Visual Studio 2015 Professional Update 1
+* [WTL 9.1 build 5321 Final](http://wtl.sourceforge.net/)
